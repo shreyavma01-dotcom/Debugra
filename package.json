@@ -1,0 +1,21 @@
+{
+  "name": "debugra",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Autonomous Software Debugging & Recovery Agent",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm --workspace client run dev",
+    "dev:server": "npm --workspace server run dev",
+    "build": "npm --workspace client run build && npm --workspace server run build",
+    "test": "npm --workspace server run test",
+    "lint": "npm --workspace server run lint --if-present && npm --workspace client run lint --if-present",
+    "typecheck": "npm --workspace server run typecheck --if-present && npm --workspace client run typecheck --if-present",
+    "demo": "node scripts/demo.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.5.4"
+  }
+}
